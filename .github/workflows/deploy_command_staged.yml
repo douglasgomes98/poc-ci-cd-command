@@ -55,7 +55,7 @@ jobs:
 
       - name: Show Environment
         run: echo "Ambiente01" |
-          echo ${{secrets.API_URL}}
+          echo ${{ vars.FRONT }}
 
   deploy-ambiente02:
     if: github.event.issue.pull_request != null && contains(github.event.comment.body, '/deploy-ambiente02')
@@ -107,4 +107,4 @@ jobs:
 
       - name: Show Environment
         run: echo "Ambiente02" |
-          echo ${{secrets.API_URL}}
+          echo ${{ vars.FRONT }}
