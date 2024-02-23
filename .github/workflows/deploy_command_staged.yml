@@ -1,12 +1,13 @@
 name: Deploy Command Staged
 
 on:
-  push:
-    branches: [main]
+  issue_comment:
+    types: ["created"]
 
 jobs:
   deploy-app:
-    name: Deploy Staged
+    if: github.event.issue.pull_request != null && contains(github.event.comment.body, '/deploy-staged')
+    name: Deploy App Staged
     runs-on: ubuntu-latest
 
     steps:
